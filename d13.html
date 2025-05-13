@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Space Grotesk", sans-serif;
+  background-color: #16181b;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 3rem;
+  flex-flow: column;
+  position: relative;
+}
+.carousel {
+  max-width: 80%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+.carousel .item {
+  width: 20%;
+  height: 250px;
+  max-width: 250px;
+  /* background-color: white; */
+  margin: 2px;
+  transition: 0.5s;
+  object-fit: cover;
+  filter: brightness(1);
+}
+.carousel .item:hover {
+  filter: brightness(1);
+  transform: translateZ(170px);
+}
+.carousel .item:hover + * {
+  filter: brightness(0.6);
+  transform: translateZ(120px) rotateY(25deg);
+}
+.carousel .item:hover + * + * {
+  filter: brightness(0.4);
+  transform: translateZ(50px) rotateY(15deg);
+}
+.carousel .item:has(+ *:hover) {
+  filter: brightness(0.6);
+  transform: translateZ(120px) rotateY(-25deg);
+}
+.carousel .item:has(+ * + *:hover) {
+  filter: brightness(0.4);
+  transform: translateZ(50px) rotateY(-15deg);
+}
+.code-by {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background-color: #ffffff4a;
+  width: 100%;
+  padding: 20px 0;
+  transition: 0.9s;
+}
+.code-by:hover {
+  background-color: transparent;
+}
+.code-by h2 {
+  color: aliceblue;
+  font-size: 30px;
+}
+.code-by h2 span {
+  text-transform: uppercase;
+  position: relative;
+  font-size: 30px;
+}
+.code-by h2 span::before {
+  content: attr(data);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: rgb(22, 77, 126);
+  text-transform: uppercase;
+  /* width: 0; */
+  opacity: 0;
+  transition: 0.99s;
+}
+.code-by h2 span:hover::before {
+  width: 100%;
+  opacity: 1;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+  <div class="carousel">
+    <img class="item" src="https://images.pexels.com/photos/1173777/pexels-photo-1173777.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+    <img class="item" src="https://images.pexels.com/photos/775201/pexels-photo-775201.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+    <img class="item" src="https://images.pexels.com/photos/1598073/pexels-photo-1598073.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+    <img class="item" src="https://images.pexels.com/photos/70365/forest-sunbeams-trees-sunlight-70365.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+    <img class="item" src="https://images.pexels.com/photos/1658967/pexels-photo-1658967.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+  </div>
+  <!-- <div class="code-by">
+    <h2 class="">code by :- <span data="ulhas Johari">ulhas Johari</span></h2>
+  </div> -->
+</div>
+</body>
+</html>
